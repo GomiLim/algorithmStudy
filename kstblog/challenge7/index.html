@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <h1 id="title">Form요소를 그룹을 지어서 Object화 해보자!</h1>
+  <article id="mission">
+    <p>JS를 이용해서 아래 분홍박스안의 버튼을 누르면 분홍박스안의 입력박스 안에 쓰여진 숫자만큼을 토대로 파란박스안의 내용처럼 JSON을 만들어서 황색박스안에 넣어주세요</p>
+    <p>입력박스안에 강아지에는 2, 고양이에는 3, 바나나에는 1, 택시에는 0가 들어있다면 버튼을 누르면 아래 파란박스안의 예시와 같은 결과가 됩니다.</p>
+    <p>입력박스안에는 숫자 이외에는 들어갈 수 없으며 음수가 될 수도 있습니다</p>
+    <p>분홍박스의 id는 source이며 파란박스의 id는 example이며 황색박스의 id는 container입니다.</p>
+  </article>
+
+  <div id="source">
+    <input type="number" name="dog" parent="animal" value="2"> X 🐶<br>
+    <input type="number" name="cat" parent="animal" value="3"> X 🐱<br>
+    <input type="number" name="banana" parent="fruit" value="1"> X 🍌<br>
+    <input type="number" name="lemon" parent="fruit"> X 🍋<br>
+    <input type="number" name="taxi" parent="car" value="0"> X 🚕<br>
+    <input type="number" name="bus" parent="car"> X 🚌<br>
+    <button>JSON으로 만들기</button>
+  </div>
+
+  <div id="example">
+
+  </div>
+  <script>
+    document.querySelector('#example').innerText = JSON.stringify({
+      animal: {
+        dog: 2,
+        cat: 3,
+      },
+      fruit: {
+        banana: 1
+      }
+    });
+  </script>
+
+  <div id="container"></div>
+  
+  <script src="/common/common.js"></script>
+  <script src="./index.js"></script>
+</body>
+</html>
