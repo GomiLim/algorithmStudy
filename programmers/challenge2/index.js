@@ -5,7 +5,8 @@ process.stdin.on('data', data => {
     const a = 3; const b = 5;
     let txt = '';
     let c = 0;
-    while ( c === b ) {
+    // while ( c === b ) { 일단 true 로 만들어줘야하는데 안만들어줌 ㅇㅇ
+    while ( c < b ) {
         for (let i = 0; i < a; i ++) {
              txt += '*';
         }
