@@ -2,8 +2,7 @@ function solution(x, n) {
 //     var answer = [];
     // for ( let i = 0; i < n; i++ ) answer.push(x*(i+1));
 //     console.log(Array(n).fill(x).forEach((v, i) => (i+1)*v));
-//    var a =  Array(n).fill(x).forEach(function(ele, idx) {
-    //forEach
+//     var a =  Array(n).fill(x).forEach(function(ele, idx) {
 //         return (idx+1)*ele;
 //     })
 //     console.log(a)
@@ -21,7 +20,7 @@ function solution(x, n) {
     }
 
     //i를 1로 잡으니까 겁나 코드가 간단해지는군요 ???
-    
+
     return answer;
 }
 
@@ -42,7 +41,6 @@ https://ipex.tistory.com/entry/JavaScript-Arrayprototype-%EC%A2%85%EB%A5%98-1-co
 var score = 80;
 var copy = score;
 
-console.log( score === copy);
 console.log('score', score);
 console.log('copy', copy);
 
@@ -50,6 +48,7 @@ score = 100;
 
 console.log('score', score);
 console.log('copy', copy);
+console.log( score === copy);
 
 
 var obj = {
