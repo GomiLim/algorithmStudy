@@ -15,4 +15,3 @@ b.test2.deep = 2;
 
 console.log(a)
 //{ test: 1, test2: { deep: 2 } }
-
