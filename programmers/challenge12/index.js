@@ -19,5 +19,31 @@ function solution(arr, divisor) {
   if(answer.length === 0) answer.push(-1);
   return answer.sort((a,b) => a-b);
 }
+
+/*
+function solution(arr, divisor) {
+  var answer = [];
+  for(var i = 0; i < arr.length; ++i) {
+      if(arr[i] % divisor == 0) answer.push(arr[i]);
+  }
+  return answer.length < 1 ? [-1] : answer.sort((a, b) => a - b);
+}
+*/
+
+
+
+function solutionFilter(arr, divisor) {
+  var answer = arr.filter(v => v%divisor == 0);
+  return answer.length == 0 ? [-1] : answer.sort((a,b) => a-b);
+}
+
+function solutionMap(arr, divisor) {
+  var answer = [];
+  arr.map((o) => {
+      o % divisor === 0 && answer.push(o);
+  })
+  return answer.length ? answer.sort((a, b) => a - b) : [-1];
+}
+
 console.log(solution([3, 2, 6], 10))
 //[5, 10]
