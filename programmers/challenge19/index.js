@@ -1,15 +1,25 @@
 /*
-문자열 s의 길이가 4 혹은 6이고, 숫자로만 구성돼있는지 확인해주는 함수, solution을 완성하세요. 예를 들어 s가 a234이면 False를 리턴하고 1234라면 True를 리턴하면 됩니다.
+
+1부터 입력받은 숫자 n 사이에 있는 소수의 개수를 반환하는 함수, solution을 만들어 보세요.
+
+소수는 1과 자기 자신으로만 나누어지는 수를 의미합니다.
+(1은 소수가 아닙니다.)
+
+제한 조건
+n은 2이상 1000000이하의 자연수입니다.
+
 */
 
-function solution(s) {
-  return s.length===4 || s.length===6 ? /^[0-9]*$/.test(s) : false;
+function solution(n) {
+  if ( n < 2 || n > 1000000) {
+    return false;
+  } else {
+    for(let i=2; i<n; i++) {
+      console.log(i%(i-1) !== 0)
+    }
+  }
 }
-function solutionIsnan(s) {
-  return s.length===4 || s.length===6 ? !isNaN(s) : false;
-}
 
+console.log(solution(15))
 
-console.log(solution('1234'))
-//true
-
+//4
