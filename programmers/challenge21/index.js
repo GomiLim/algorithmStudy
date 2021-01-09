@@ -40,11 +40,9 @@ function solution(participant, completion) {
   participant.sort();
   completion.sort();
 
-  let list = [];
   for(let i =0; i < participant.length; i++) {
     if (participant[i] !== completion[i]) {
-      list.push(participant[i]);
-      return list;
+      return participant[i];
     }  
   }
 }
