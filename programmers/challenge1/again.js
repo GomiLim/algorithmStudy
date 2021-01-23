@@ -5,9 +5,7 @@
 */ 
 
 function solution(s) {
-    console.log(s[Math.floor(s.length/2)])
-    let center = Math.floor(s.length/2);
-    console.log(center)
+let center = Math.floor(s.length/2);
 return s.length % 2 ? s[center] : s[center-1]+s[center];
 }
 
