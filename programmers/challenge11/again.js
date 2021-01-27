@@ -13,8 +13,16 @@ arr = [4, 4, 4, 3, 3] 이면 [4, 3] 을 return 합니다.
 */
 
 //set, Reduce, For, While, Filter
-function solution(arr){
-
+function solution(arr) {
+  let _arr = [];
+  arr.reduce((a, c) => {
+    console.log('a', a);
+    console.log('c', c);
+    if (a === c) {
+      _arr.push(c);
+    }
+  });
+  console.log(_arr);
 }
 
-console.log(solution([1,1,3,3,0,1,1]))
+console.log(solution([1, 1, 3, 3, 0, 1, 1]));
