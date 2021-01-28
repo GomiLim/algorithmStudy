@@ -15,14 +15,23 @@ arr = [4, 4, 4, 3, 3] 이면 [4, 3] 을 return 합니다.
 //set, Reduce, For, While, Filter
 function solution(arr) {
   let _arr = [];
-  arr.reduce((a, c) => {
-    console.log('a', a);
-    console.log('c', c);
-    if (a === c) {
-      _arr.push(c);
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] !== arr[i + 1]) {
+      _arr.push(arr[i]);
     }
-  });
+  }
+  return _arr;
+}
+
+function solutionSet(arr) {
+  let _arr = [...new Set(arr)];
   console.log(_arr);
 }
 
-console.log(solution([1, 1, 3, 3, 0, 1, 1]));
+function solutionFilter(arr) {
+  return [...arr].filter((val, index) => {
+    return val !== arr[index + 1];
+  });
+}
+
+console.log(solutionFilter([1, 1, 3, 3, 0, 1, 1]));
