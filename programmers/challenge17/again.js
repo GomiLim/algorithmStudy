@@ -17,7 +17,7 @@ for ( let string of [...newstring]) {
     else continue;
 }
 
-if ( p  === 0 && y === 0)  return  true;
+if ( p === 0 && y === 0)  return  true;
 
 if (p == y) return  true;
 else return false;
