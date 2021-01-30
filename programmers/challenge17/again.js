@@ -6,13 +6,24 @@
 예를 들어 s가 pPoooyY면 true를 return하고 Pyy라면 false를 return합니다.
 */
 
-//초간단
 function solution(s) {
 let newstring = s.toLowerCase();
+let p = 0;
+let y = 0;
 
-console.log(strfind(s, 'p'))
+for ( let string of [...newstring]) {
+    if (string === 'p') p ++
+    else if ( string === 'y') y++
+    else continue;
 }
 
-console.log(solution('PpppoooyY'))
+if ( p  === 0 && y === 0)  return  true;
+
+if (p == y) return  true;
+else return false;
+
+}
+
+console.log(solution('ppooo'))
 //true
 
