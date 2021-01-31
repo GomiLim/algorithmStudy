@@ -27,37 +27,15 @@ vinko는 참여자 명단에는 있지만, 완주자 명단에는 없기 때문�
 mislav는 참여자 명단에는 두 명이 있지만, 완주자 명단에는 한 명밖에 없기 때문에 한명은 완주하지 못했습니다.
 */
 
-// for(let word of fullWordList){
-//   if(!wordsToRemove.find((val) => val == word))match.push(word);
-// }
-
 function solution(participant, completion) {
-  // const player = participant.filter((players, idx) => {
-  //   console.log(players);
-  //   return players !== completion[idx] && !players;
-  // });
-
-  participant.sort();
-  completion.sort();
-
-  for(let i =0; i < participant.length; i++) {
-    if (participant[i] !== completion[i]) {
-      return participant[i];
-    }  
+  let result = [];
+  for ( com of  participant) {
+    if (completion.indexOf(com) !== -1) continue;
+    else result.push(com);
   }
+  console.log(result);
 }
 
 
-// function solution(participant, completion) {
-//   var answer = '';
-  
-//   for (let i = 0; i < completion.length; i++) {
-//       const idx = participant.indexOf(completion[i]);
-//       if (idx > -1) participant.splice(idx, 1);
-//   }
-  
-//   return participant[0];
-// }
 
-// console.log(solution(['leo', 'kiki', 'eden'], ['eden', 'kiki']))
-console.log(solution(['mislav', 'stanko', 'mislav', 'ana'], ['stanko', 'ana', 'mislav']));
+console.log(solution(['mislav', 'stanko', 'mislav', 'ana'],	['stanko', 'ana', 'mislav']	));
