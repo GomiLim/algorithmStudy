@@ -17,12 +17,4 @@ function solution(s) {
   return Number(s);
 }
 
-
-function strToInt(str){
-  return str/1
-  }
-
-function strToCalc(str){
-  return +str
-}
 console.log(solution("-1234"))
