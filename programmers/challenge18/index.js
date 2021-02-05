@@ -8,6 +8,9 @@ function solution(s) {
 function solutionIsnan(s) {
   return s.length===4 || s.length===6 ? !isNaN(s) : false;
 }
+function solutionPasrInt(s) {
+   return s.length==4||s.length==6?s==parseInt(s):false
+}
 
 
 console.log(solution('1234'))
