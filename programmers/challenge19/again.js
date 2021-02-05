@@ -11,9 +11,20 @@ n은 2이상 1000000이하의 자연수입니다.
 */
 
 function solution(n) {
- 
-
+    if (2 <= n <= 1000000) {
+        let array = [];
+        for (let i = 2; i <= n; i++) {
+            let array2 = [];
+            for (let j = 1; j < i; j++) {
+                if (i % j === 0) {
+                    array2.push(j);
+                }
+            }
+            if (array2.length < 2) array.push(i)
+        }
+        return array.length;
+    }
 }
-console.log(solution(15))
+console.log(solution(3))
 
 //4
