@@ -47,6 +47,39 @@ function solution(participant, completion) {
   return result;
 }
 
+function jimong(participant, completion) {
+  let result = [];
+  for (let i = 0; i < participant.length; i++) {
+    let runner = participant[i];
+    let complete_run = false;
+    for (let j = 0; j < completion.length; j++) {
+      if (runner === completion[j]) {
+        completion.splice(j, 1);
+        complete_run = true;
+        break;
+      }
+    }
+
+    if (!complete_run) result.push(runner);
+  }
+  return result;
+}
+
+function reJimong(participant, completion) {
+  let result = [];
+  for (let i = 0; i < participant.length; i++) {
+    let gomi = false;
+    for (let j = 0; j < completion.length; j++) {
+      if (participant[i] === completion[j]) {
+        completion.splice(j, 1);
+        gomi = true;
+        break;
+      }
+    }
+    if (!gomi) result.push(participant[i]);
+  }
+  return result;
+}
 
 
-console.log(solution(['ana', 'ana', 'mislav', 'mislav', 'stanko'], ['ana', 'mislav', 'stanko']));
+console.log(reJimong(['ana', 'ana', 'mislav', 'mislav', 'stanko'], ['ana', 'mislav', 'stanko']));
