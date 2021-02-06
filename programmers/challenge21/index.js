@@ -40,24 +40,25 @@ function solution(participant, completion) {
   participant.sort();
   completion.sort();
 
-  for(let i =0; i < participant.length; i++) {
+  for (let i = 0; i < participant.length; i++) {
     if (participant[i] !== completion[i]) {
       return participant[i];
-    }  
+    }
   }
 }
 
 
 // function solution(participant, completion) {
 //   var answer = '';
-  
+
 //   for (let i = 0; i < completion.length; i++) {
 //       const idx = participant.indexOf(completion[i]);
 //       if (idx > -1) participant.splice(idx, 1);
 //   }
-  
+
 //   return participant[0];
 // }
 
 // console.log(solution(['leo', 'kiki', 'eden'], ['eden', 'kiki']))
-console.log(solution(['mislav', 'stanko', 'mislav', 'ana'], ['stanko', 'ana', 'mislav']));
+// console.log(solution(['mislav', 'stanko', 'mislav', 'ana'], ['stanko', 'ana', 'mislav']));
+// console.log(solution(['ana', 'ana', 'mislav', 'mislav', 'stanko'], ['ana', 'mislav', 'stanko']));
