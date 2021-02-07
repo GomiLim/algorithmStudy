@@ -15,51 +15,7 @@ board	moves	result
 */
 
 function solution(board, moves) {
-  const result_list = [];
-  let pop_item_count = 0;
 
-  for (let i = 0; i < moves.length; i++) {
-    let real_move_idx = moves[i] - 1;
-    for (let j = 0; j < board.length; j++) {
-      if (board[j][real_move_idx] != 0) {
-        let top_item = board[j][real_move_idx];
-        // console.log(`found item: ${top_item} / index: ${real_move_idx}`);
-
-        board[j][real_move_idx] = 0;  // 아이템 뽑았기에 0으로 아이템 없애준다
-        if (result_list.length > 0) {
-          // 결과 바구니에 인형이 존재할 때
-          if (result_list[result_list.length - 1] == top_item) {
-            // 결과 바구니 맨 위 아이템이 방금 뽑은 아이템과 동일할 때
-            pop_item_count++;
-            result_list.pop();
-          } else {
-            //  동일하지 않을 때 - 아이템 추가
-            result_list.push(top_item);
-          }
-        } else {
-          // 바구니가 비었을 때
-          result_list.push(top_item);
-        }
-
-        // if (result_list.length > 0 && result_list[result_list.length - 1] == top_item) {
-        //   // console.log(`last item: ${result_list[result_list.length - 1]}`)
-        //   pop_item_count++;
-        //   result_list.pop();
-        // } else {
-        //   // console.log(`new item add`);
-        //   result_list.push(top_item);
-        // }
-        break;
-      }
-    }
-    // console.log(result_list)
-  }
-  
-  // for (let i = 0; i < moves.length; i++) {
-  //   console.log(board[i][moves[i]-1]);
-  // }
-
-  return pop_item_count * 2;    // 2개씩 터지므로 2배
 }
 
 
@@ -82,4 +38,4 @@ function solution(board, moves) {
 
 
 
-console.log(solution([[0,0,0,0,0],[0,0,1,0,3],[0,2,5,0,1],[4,2,4,4,2],[3,5,1,3,1]], [1,5,3,5,1,2,1,4]));
+console.log(solution([[0, 0, 0, 0, 0], [0, 0, 1, 0, 3], [0, 2, 5, 0, 1], [4, 2, 4, 4, 2], [3, 5, 1, 3, 1]], [1, 5, 3, 5, 1, 2, 1, 4]));

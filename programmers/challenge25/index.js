@@ -13,15 +13,15 @@ numbers	result
 */
 function solution(numbers) {
   let list = new Set;
-  for(let i = 0; i < numbers.length; i ++) {
-    for(let j = 0; j < numbers.length; j ++) {
+  for (let i = 0; i < numbers.length; i++) {
+    for (let j = 0; j < numbers.length; j++) {
       if (i !== j) {
-        list.add(numbers[i]+numbers[j])
+        list.add(numbers[i] + numbers[j])
       }
     }
   }
 
-  return [...list].sort((a,b) => a-b);
+  return [...list].sort((a, b) => a - b);
 }
 
 function solutionImdexOf(numbers) {
@@ -30,15 +30,15 @@ function solutionImdexOf(numbers) {
   //배열의 두개 요소를 뽑아 덧셈한 모든 경우의 수를 구한다.
   //중복된 값은 제거한다.
   //배열값을 리턴한다.
-  for(let i=0; i<numbers.length-1; i++){
-      for(let j=i+1; j<numbers.length; j++){
-         if(answer.indexOf(numbers[i]+numbers[j])===-1){
-             answer.push(numbers[i]+numbers[j]) 
-         } 
+  for (let i = 0; i < numbers.length - 1; i++) {
+    for (let j = i + 1; j < numbers.length; j++) {
+      if (answer.indexOf(numbers[i] + numbers[j]) === -1) {
+        answer.push(numbers[i] + numbers[j])
       }
+    }
   }
 
-  return answer.sort((a,b)=>a-b);
+  return answer.sort((a, b) => a - b);
 }
 
-console.log(solution([2,1,3,4,1]));
+console.log(solution([2, 1, 3, 4, 1]));

@@ -27,4 +27,4 @@ function solution(n) {
 }
 console.log(solution(3))
 
-//4
+//3
