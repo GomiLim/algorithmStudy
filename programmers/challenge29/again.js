@@ -22,6 +22,8 @@ function solution(n) {
   if (n / n === 1) {
     return Math.pow(Math.sqrt(n) + 1, 2);
   }
+  return -1;
 }
 
 console.log(solution(121));
+
