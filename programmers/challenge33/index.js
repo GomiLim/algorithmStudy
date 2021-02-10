@@ -10,8 +10,8 @@ n	return
 118372 873211
 */
 function solution(n) {
-  return Number(String(n).split('').sort((a,b) => b-a).join(''))
- }
+  return Number(String(n).split('').sort((a, b) => b - a).join(''))
+}
 
 function solution(n) {
   const newN = n + "";
