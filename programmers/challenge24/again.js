@@ -15,6 +15,12 @@ board	moves	result
 */
 
 function solution(board, moves) {
+  for (let i =0; i < board.length; i++) {
+    console.log(`===========${i}===============`)
+    for(let j=0; j <board[i].length; j++) {
+      console.log(`${i}열 ${j}번째: `,board[i][moves[j]])
+    }
+  }
 
 }
 
