@@ -15,33 +15,50 @@ board	moves	result
 */
 
 function solution(board, moves) {
-  for (let i =0; i < board.length; i++) {
-    console.log(`===========${i}===============`)
-    for(let j=0; j <board[i].length; j++) {
-      console.log(`${i}열 ${j}번째: `,board[i][moves[j]])
+  let result = [];
+  let count = 0;
+  for (let i =0; i < moves.length; i++) {
+    for(let j=0; j < board.length; j++) {
+      console.log("================================");
+
+      console.log('i: ', i);
+      console.log('j: ', j);
+      console.log('board: ', board);
+      console.log('moves: ', moves);
+      console.log('moves[i]-1: ', moves[i]-1);
+      console.log(`board[${j}][${moves[i]-1}]: `, board[j][moves[i]-1]);
+
+      if(board[j][moves[i]-1] !== 0) {
+        console.log('result: ', result);
+        console.log('result length: ', result.length);
+        console.log(`result[${result.length-1}]: `, result[result.length-1]);
+        if(result.length > 0) {
+          if( result[result.length] === board[j][moves[i]-1]) {
+            count++;
+            result.pop();
+            board[j][moves[i]-1] = 0;
+            console.log("dull popped: ", board[j]);
+            console.log("count increase: ", count);
+          } else {
+            result.push( board[j][moves[i]-1]);
+            board[j][moves[i]-1] = 0;
+            console.log("dull popped: ", board[j]);
+            console.log("dull stacked: ", result);
+          }
+        } else {
+          result.push( board[j][moves[i]-1]);
+          board[j][moves[i]-1] = 0;
+          console.log("dull popped: ", board[j]);
+          console.log("dull stacked: ", result);
+        }
+        break;
+      } else {
+        continue;
+      }
     }
   }
 
+  return count * 2
 }
-
-
-/**
- * 자료구조
- * 
- * 1. 링크드 리스트
- * 2. 큐
- * 3. 스택
- * 4. 해쉬
- * 5. 맵
- * 6. 집합 (set)
- * 7. 사전 (dictionary - object)
- * 8. 배열
- * 
- 큐 FIFO First in First out
- 스택 FILO First in Last out
- */
-
-
-
 
 console.log(solution([[0, 0, 0, 0, 0], [0, 0, 1, 0, 3], [0, 2, 5, 0, 1], [4, 2, 4, 4, 2], [3, 5, 1, 3, 1]], [1, 5, 3, 5, 1, 2, 1, 4]));
