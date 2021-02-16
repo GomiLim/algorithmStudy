@@ -35,31 +35,94 @@ answers	return
 */
 
 function solution(answer) {
-  let student_1 = [1,2,3,4,5];
+  let student_1 = [1, 2, 3, 4, 5];
   let student_1_count = 0;
   let student_2 = [2, 1, 2, 3, 2, 4, 2, 5];
   let student_2_count = 0;
   let student_3 = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5];
   let student_3_count = 0;
 
-  let Newstudent_1 = [];
-  if(answer.length > 5) {
-    let list = Math.floor(answer.length / 5) * 2;
-    console.log('Math.floor(answer.length / 5)', Math.floor(answer.length / 5))
-    console.log('Math.floor(answer.length / 5) *2', Math.floor(answer.length / 5) * 2)
-    while ( list > 0) {
-      let aa = student_1.concat(student_1)
-      Newstudent_1.push(aa);
-      list--;
+  let list = Math.floor(answer.length / 5) * 2;
+  let student_1_repeatAnswer = student_1.join().replace(/,/gi, "").repeat(list).split('');
+  let student_2_repeatAnswer = student_2.join().replace(/,/gi, "").repeat(list).split('');
+  let student_3_repeatAnswer = student_3.join().replace(/,/gi, "").repeat(list).split('');
+  if (answer.length > 5) {
+    //student1
+    for (let i = 0; i < answer.length; i++) {
+      console.log(`${i}번쨰 답 :`, answer[i])
+      console.log(`1번 학생 :`, Number(student_1_repeatAnswer[i]))
+      console.log(`2번 학생 :`, student_2_repeatAnswer[i])
+      console.log(`3번 학생 :`, student_3_repeatAnswer[i])
+      // console.log(`1번 학생 점수:`, student_1_repeatAnswer[i])
+      if (answer[i] === Number(student_1_repeatAnswer[i])) {
+        student_1_count++;
+        console.log('1번학생 카운트 : ', student_1_count);
+      } else {
+        continue;
+      }
     }
-  }
+    //student2
+    for (let i = 0; i < answer.length; i++) {
+      if (answer[i] === Number(student_2_repeatAnswer[i])) {
+        student_2_count++;
+        console.log('2번학생 카운트 : ', student_2_count);
 
-  console.log(Newstudent_1);
-  for (let i = 0; i < answer.length; i++) {
-    if(answer[i] === Newstudent_1[i]) {
-      student_1_count++
+      } else {
+        continue;
+      }
     }
+    //student3
+    for (let i = 0; i < answer.length; i++) {
+      if (answer[i] === Number(student_3_repeatAnswer[i])) {
+        student_3_count++;
+        console.log('3번학생 카운트 : ', student_3_count);
+
+      } else {
+        continue;
+      }
+    }
+
+    console.log(student_1_count);
+
+  } else {
+    //student1
+    for (let i = 0; i < answer.length; i++) {
+      console.log(`${i}번쨰 답 :`, answer[i])
+      console.log(`1번 학생 :`, Number(student_1_repeatAnswer[i]))
+      console.log(`2번 학생 :`, student_2_repeatAnswer[i])
+      console.log(`3번 학생 :`, student_3_repeatAnswer[i])
+      if (answer[i] === student_1[i]) {
+        student_1_count++;
+        console.log('1번학생 카운트 : ', student_1_count);
+      } else {
+        continue;
+      }
+    }
+
+    //student2
+    for (let i = 0; i < answer.length; i++) {
+      if (answer[i] === student_2[i]) {
+        student_2_count++;
+        console.log('2번학생 카운트 : ', student_2_count);
+
+      } else {
+        continue;
+      }
+    }
+
+    //student3
+    for (let i = 0; i < answer.length; i++) {
+      if (answer[i] === student_3[i]) {
+        student_3_count++;
+        console.log('3번학생 카운트 : ', student_3_count);
+
+      } else {
+        continue;
+      }
+    }
+    console.log(student_1_count);
+
   }
-  console.log(student_1_count);
 }
-console.log(solution([1,2,3,4,5,1,2,3,4,5,1,2,3,4]));
+
+console.log(solution([1, 2, 3, 4, 5]));
