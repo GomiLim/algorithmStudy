@@ -36,93 +36,80 @@ answers	return
 
 function solution(answer) {
   let student_1 = [1, 2, 3, 4, 5];
-  let student_1_count = 0;
   let student_2 = [2, 1, 2, 3, 2, 4, 2, 5];
-  let student_2_count = 0;
   let student_3 = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5];
-  let student_3_count = 0;
 
   let list = Math.floor(answer.length / 5) * 2;
-  let student_1_repeatAnswer = student_1.join().replace(/,/gi, "").repeat(list).split('');
-  let student_2_repeatAnswer = student_2.join().replace(/,/gi, "").repeat(list).split('');
-  let student_3_repeatAnswer = student_3.join().replace(/,/gi, "").repeat(list).split('');
-  if (answer.length > 5) {
-    //student1
+  const make_repeatAnswer = (student) => {
+    return student.join().replace(/,/gi, "").repeat(list).split('');
+  };
+
+  const checkAnswer = (student, count = 0) => {
     for (let i = 0; i < answer.length; i++) {
-      console.log(`${i}번쨰 답 :`, answer[i])
-      console.log(`1번 학생 :`, Number(student_1_repeatAnswer[i]))
-      console.log(`2번 학생 :`, student_2_repeatAnswer[i])
-      console.log(`3번 학생 :`, student_3_repeatAnswer[i])
-      // console.log(`1번 학생 점수:`, student_1_repeatAnswer[i])
-      if (answer[i] === Number(student_1_repeatAnswer[i])) {
-        student_1_count++;
-        console.log('1번학생 카운트 : ', student_1_count);
+      if (answer[i] === Number(student[i])) {
+        count++;
       } else {
         continue;
       }
     }
-    //student2
-    for (let i = 0; i < answer.length; i++) {
-      if (answer[i] === Number(student_2_repeatAnswer[i])) {
-        student_2_count++;
-        console.log('2번학생 카운트 : ', student_2_count);
-
-      } else {
-        continue;
-      }
-    }
-    //student3
-    for (let i = 0; i < answer.length; i++) {
-      if (answer[i] === Number(student_3_repeatAnswer[i])) {
-        student_3_count++;
-        console.log('3번학생 카운트 : ', student_3_count);
-
-      } else {
-        continue;
-      }
-    }
-
-    console.log(student_1_count);
-
-  } else {
-    //student1
-    for (let i = 0; i < answer.length; i++) {
-      console.log(`${i}번쨰 답 :`, answer[i])
-      console.log(`1번 학생 :`, Number(student_1_repeatAnswer[i]))
-      console.log(`2번 학생 :`, student_2_repeatAnswer[i])
-      console.log(`3번 학생 :`, student_3_repeatAnswer[i])
-      if (answer[i] === student_1[i]) {
-        student_1_count++;
-        console.log('1번학생 카운트 : ', student_1_count);
-      } else {
-        continue;
-      }
-    }
-
-    //student2
-    for (let i = 0; i < answer.length; i++) {
-      if (answer[i] === student_2[i]) {
-        student_2_count++;
-        console.log('2번학생 카운트 : ', student_2_count);
-
-      } else {
-        continue;
-      }
-    }
-
-    //student3
-    for (let i = 0; i < answer.length; i++) {
-      if (answer[i] === student_3[i]) {
-        student_3_count++;
-        console.log('3번학생 카운트 : ', student_3_count);
-
-      } else {
-        continue;
-      }
-    }
-    console.log(student_1_count);
-
+    return count;
   }
+
+
+  let new_answerArray = [
+    answer.length > 5 ? checkAnswer(make_repeatAnswer(student_1)) : checkAnswer(student_1),
+    answer.length > 5 ? checkAnswer(make_repeatAnswer(student_2)) : checkAnswer(student_2),
+    answer.length > 5 ? checkAnswer(make_repeatAnswer(student_3)) : checkAnswer(student_3),
+  ]
+
+  let max = Math.max.apply(null, new_answerArray);
+  return new_answerArray.map((ele, idx) => {
+    if (ele === max) return idx + 1;
+  }).filter(ele => ele);
+
+
+  //map 과 filter의 차이 구분하기
+
+  /*
+  console.log(new_answerArray);
+  console.log(new_answerArray.map((ele, idx) => {
+    return idx
+  }));
+  
+  let arr =[];
+  let aa = new_answerArray.filter((ele, idx) => {
+    console.log('정답:', ele);
+    console.log('학생순번', idx + 1);
+    console.log('최대값:', Math.max.apply(null, new_answerArray));
+    console.log('===============')
+
+    if (ele === Math.max.apply(null, new_answerArray)) {
+      console.log('뿝:', idx + 1)
+      arr.push(idx + 1);
+      return true;
+    };
+    return false;
+  });
+
+  console.log(aa);
+
+*/
+  /*
+  let new_answerArray = {
+    '1번 수포자': answer.length > 5 ? checkAnswer(make_repeatAnswer(student_1)) : checkAnswer(student_1),
+    '2번 수포자': answer.length > 5 ? checkAnswer(make_repeatAnswer(student_2)) : checkAnswer(student_2),
+    '3번 수포자': answer.length > 5 ? checkAnswer(make_repeatAnswer(student_3)) : checkAnswer(student_3),
+  }
+    Math.max.apply(null, Object.values(new_answerArray));
+  
+    function getKeyByValue(object, value) {
+      return Object.keys(object).find(key => object[key] === value);
+    }
+    console.log(new_answerArray)
+    return getKeyByValue(new_answerArray, Math.max.apply(null, Object.values(new_answerArray)));
+  }
+  */
 }
+
 
 console.log(solution([1, 2, 3, 4, 5]));
