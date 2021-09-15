@@ -16,3 +16,14 @@ function solution(n) {
 
 
 console.log(solution(12345));
+
+function solution(n) {
+  let result = [...n.toString()].reverse().map(item => Number(item));
+  return result;
+}
+
+function solutionParseInt(n) {
+  console.log(n+'')
+    return (n + '').split('').reverse().map(n => parseInt(n));
+}
+console.log(solutionParseInt(12345));
