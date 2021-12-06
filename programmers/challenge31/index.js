@@ -21,7 +21,7 @@ function jh_solution(s) {
     for (let i = 0; i < word.length; i++) {
       word_result += (i % 2) ? word[i].toLowerCase() : word[i].toUpperCase();
     }
-    return word_result
+    return word_result 
   }).join(' ');
 }
 

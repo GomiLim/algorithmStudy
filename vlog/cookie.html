@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>쿠키를 저장해보자</title>
+</head>
+<body>
+  <button onclick="setCookie('name', '임고미')">쿠키 저장하기</button>
+  <button onclick="  document.write(getCookie('name'))">쿠키 가져오기</button>
+  <button onclick="deleteCookie('name')">쿠키 삭제</button>
+  <script>
+    //쿠키 저장
+    function setCookie(cookie_name, value, days) {
+      var date = new Date();
+      var cookie_value;
+      if ( days === 'popup') {
+        const date = new Date();
+        date.setHours(23);
+        date.setMinutes(59);
+        date.setSeconds(58);
+        date.setDate(date.getDate());
+        const tomorrow = date.getTime();
+        const now = new Date();
+        const gap = Math.round((tomorrow - now.getTime()) / 1000) / 60 / 60 / 24;
+        cookie_value =  escape(value) + '; expires=' + gap;
+      } else {
+        date.setTime(date.getTime() + days*24*60*60*1000);
+        cookie_value = escape(value) + ((days == null) ? '' : '; expires=' + date.toUTCString());
+      }
+      document.cookie = cookie_name + "=" + cookie_value ;
+    }
+
+    //오브젝트 쿠키 저장
+    function setObjectCookie(cookie_name, value, days) {
+      var exdate = new Date();
+      exdate.setDate(exdate.getDate() + days);
+      var cookie_value =
+        value + (days == null ? "" : "; expires=" + exdate.toUTCString());
+      document.cookie = cookie_name + "=" + JSON.stringify(value);
+    }
+
+    //저장된 쿠키 불러오기
+    function getCookie(cookie_name) {
+      var x, y;
+      var val = document.cookie.split(";");
+
+      for (var i = 0; i < val.length; i++) {
+        x = val[i].substr(0, val[i].indexOf("="));
+        y = val[i].substr(val[i].indexOf("=") + 1);
+        x = x.replace(/^\s+|\s+$/g, ""); // 앞과 뒤의 공백 제거하기
+        if (x == cookie_name) {
+          return unescape(y); // unescape로 디코딩 후 값 리턴
+        }
+      }
+    }
+
+    //쿠키 삭제하기
+    function deleteCookie(cookieName) {
+      var temp = getCookie(cookieName);
+      if (temp) {
+        setCookie(cookieName, temp, -1);
+      }
+    }
+
+
+    
+  </script>
+</body>
+</html>

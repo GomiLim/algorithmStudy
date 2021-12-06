@@ -34,7 +34,6 @@ function solution(s) {
     result.push(string);
 
   });
-  console.log('정답:', result.join(' '))
   return result.join(' ');
 }
 
